@@ -17,7 +17,7 @@ def create_app():
     # IMPORTANTE: importa os models para registrar no metadata
     from app import models
 
-    # 🔥 CRIA AS TABELAS AQUI
+   
     with app.app_context():
         db.create_all()
 
