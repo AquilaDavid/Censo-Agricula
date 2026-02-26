@@ -1,4 +1,3 @@
-
 import logging
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -14,6 +13,13 @@ def create_app():
 
     db.init_app(app)
     ma.init_app(app)
+
+    # IMPORTANTE: importa os models para registrar no metadata
+    from app import models
+
+    # 🔥 CRIA AS TABELAS AQUI
+    with app.app_context():
+        db.create_all()
 
     logging.basicConfig(
         level=app.config["LOG_LEVEL"],

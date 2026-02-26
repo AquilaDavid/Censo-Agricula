@@ -8,4 +8,9 @@ class Produtor(db.Model):
     cpf = db.Column(db.String(14), nullable=False)
     idade = db.Column(db.Integer, nullable=False)
 
-    propriedades = db.relationship("Propriedade", backref="produtor", lazy=True)
+    propriedades = db.relationship(
+        "Propriedade",
+        backref="produtor",
+        lazy=True,
+        cascade="all, delete-orphan"
+    )
