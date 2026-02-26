@@ -11,7 +11,8 @@ class PropriedadeRepository:
 
     @staticmethod
     def find_by_id(id):
-        return Propriedade.query.get(id)
+        from app import db
+        return db.session.get(Propriedade, id)
 
     @staticmethod
     def delete(propriedade):
