@@ -1,17 +1,13 @@
-from flask import Flask
-from app.config import Config
+from app.helpers.application import app
 from app.helpers.database import db, ma
 from app.helpers.logging import logger
 
-def create_app():
-    app = Flask(__name__)
-    app.config.from_object(Config)
 
-    db.init_app(app)
-    ma.init_app(app)
+def create_app():
+
+    from app import models
 
     with app.app_context():
-        from app import models
         db.create_all()
 
     logger.info("Aplicacao iniciada com sucesso.")
