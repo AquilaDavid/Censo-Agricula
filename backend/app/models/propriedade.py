@@ -1,4 +1,4 @@
-from app import db
+from app.helpers.database import db
 
 
 class Propriedade(db.Model):
@@ -6,14 +6,9 @@ class Propriedade(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100), nullable=False)
-
     tamanho_hectares = db.Column(db.Float, nullable=False)
-
-    # Município
     municipio_nome = db.Column(db.String(100), nullable=False)
     municipio_codigo = db.Column(db.String(10), nullable=False)
-
-    # Estado
     estado_nome = db.Column(db.String(50), nullable=False)
     estado_uf = db.Column(db.String(2), nullable=False)
 

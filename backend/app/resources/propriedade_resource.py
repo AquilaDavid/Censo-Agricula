@@ -30,13 +30,13 @@ def buscar_propriedade(id):
     propriedade = PropriedadeService.buscar_por_id(id)
 
     if not propriedade:
-        return {"message": "Propriedade não encontrada"}, 404
+        return {"message": "Propriedade nao encontrada"}, 404
 
     return {
         "data": propriedade_schema.dump(propriedade),
         "links": {
             "self": f"/propriedades/{id}",
-            "propriedades": f"/produtores/{propriedade.produtor_id}/propriedades"
+            "produtor": f"/produtores/{propriedade.produtor_id}"
         }
     }
 
@@ -57,13 +57,15 @@ def atualizar_propriedade(id):
     propriedade = PropriedadeService.buscar_por_id(id)
 
     if not propriedade:
-        return {"message": "Propriedade não encontrada"}, 404
+        return {"message": "Propriedade nao encontrada"}, 404
 
     data = request.json
     propriedade.nome = data["nome"]
     propriedade.tamanho_hectares = data["tamanho_hectares"]
-    propriedade.cidade = data["cidade"]
-    propriedade.estado = data["estado"]
+    propriedade.municipio_nome = data["municipio_nome"]
+    propriedade.municipio_codigo = data["municipio_codigo"]
+    propriedade.estado_nome = data["estado_nome"]
+    propriedade.estado_uf = data["estado_uf"]
     propriedade.produtor_id = data["produtor_id"]
 
     PropriedadeService.salvar(propriedade)
@@ -76,7 +78,7 @@ def atualizar_parcial(id):
     propriedade = PropriedadeService.buscar_por_id(id)
 
     if not propriedade:
-        return {"message": "Propriedade não encontrada"}, 404
+        return {"message": "Propriedade nao encontrada"}, 404
 
     data = request.json
 
@@ -84,10 +86,14 @@ def atualizar_parcial(id):
         propriedade.nome = data["nome"]
     if "tamanho_hectares" in data:
         propriedade.tamanho_hectares = data["tamanho_hectares"]
-    if "cidade" in data:
-        propriedade.cidade = data["cidade"]
-    if "estado" in data:
-        propriedade.estado = data["estado"]
+    if "municipio_nome" in data:
+        propriedade.municipio_nome = data["municipio_nome"]
+    if "municipio_codigo" in data:
+        propriedade.municipio_codigo = data["municipio_codigo"]
+    if "estado_nome" in data:
+        propriedade.estado_nome = data["estado_nome"]
+    if "estado_uf" in data:
+        propriedade.estado_uf = data["estado_uf"]
     if "produtor_id" in data:
         propriedade.produtor_id = data["produtor_id"]
 
@@ -101,7 +107,7 @@ def deletar_propriedade(id):
     propriedade = PropriedadeService.buscar_por_id(id)
 
     if not propriedade:
-        return {"message": "Propriedade não encontrada"}, 404
+        return {"message": "Propriedade nao encontrada"}, 404
 
     PropriedadeService.deletar(propriedade)
 

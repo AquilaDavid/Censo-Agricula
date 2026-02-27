@@ -1,6 +1,6 @@
-# app/schemas/propriedade_schema.py
-from app import ma
+from app.helpers.database import ma
 from app.models.propriedade import Propriedade
+
 
 class PropriedadeSchema(ma.SQLAlchemyAutoSchema):
     culturas = ma.Nested('CulturaSchema', many=True, exclude=('propriedade',))

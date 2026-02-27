@@ -1,35 +1,25 @@
-from app import db
-from app.models.cultura import Cultura
+from app.helpers.logging import logger
+from app.repositories.cultura_repository import CulturaRepository
 
 
 class CulturaService:
 
     @staticmethod
     def listar(nome_cultura, propriedade_id, page, per_page):
-        query = Cultura.query
-
-        if nome_cultura:
-            query = query.filter(Cultura.nome_cultura.ilike(f"%{nome_cultura}%"))
-
-        if propriedade_id:
-            query = query.filter_by(propriedade_id=propriedade_id)
-
-        return query.paginate(page=page, per_page=per_page)
-
+        logger.info("Listando culturas | filtros aplicados")
+        return CulturaRepository.find_filtered(nome_cultura, propriedade_id, page, per_page)
 
     @staticmethod
     def buscar_por_id(id):
-        return Cultura.query.get(id)
-
+        logger.info(f"Buscando cultura ID {id}")
+        return CulturaRepository.find_by_id(id)
 
     @staticmethod
     def salvar(cultura):
-        db.session.add(cultura)
-        db.session.commit()
-        return cultura
-
+        logger.info("Salvando cultura")
+        return CulturaRepository.save(cultura)
 
     @staticmethod
     def deletar(cultura):
-        db.session.delete(cultura)
-        db.session.commit()
+        logger.warning(f"Removendo cultura {cultura.id}")
+        CulturaRepository.delete(cultura)

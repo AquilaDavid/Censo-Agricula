@@ -1,10 +1,11 @@
 from app.models.propriedade import Propriedade
 
+
 class PropriedadeRepository:
 
     @staticmethod
     def save(propriedade):
-        from app import db
+        from app.helpers.database import db
         db.session.add(propriedade)
         db.session.commit()
         return propriedade
@@ -15,7 +16,7 @@ class PropriedadeRepository:
 
     @staticmethod
     def delete(propriedade):
-        from app import db
+        from app.helpers.database import db
         db.session.delete(propriedade)
         db.session.commit()
 

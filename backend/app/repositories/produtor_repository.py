@@ -1,10 +1,11 @@
 from app.models.produtor import Produtor
 
+
 class ProdutorRepository:
 
     @staticmethod
     def save(produtor):
-        from app import db
+        from app.helpers.database import db
         db.session.add(produtor)
         db.session.commit()
         return produtor
@@ -15,7 +16,7 @@ class ProdutorRepository:
 
     @staticmethod
     def delete(produtor):
-        from app import db
+        from app.helpers.database import db
         db.session.delete(produtor)
         db.session.commit()
 

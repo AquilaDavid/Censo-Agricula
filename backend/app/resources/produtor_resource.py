@@ -30,7 +30,7 @@ def buscar_produtor(id):
     produtor = ProdutorService.buscar_por_id(id)
 
     if not produtor:
-        return {"message": "Produtor não encontrado"}, 404
+        return {"message": "Produtor nao encontrado"}, 404
 
     return {
         "data": produtor_schema.dump(produtor),
@@ -57,12 +57,12 @@ def atualizar_produtor(id):
     produtor = ProdutorService.buscar_por_id(id)
 
     if not produtor:
-        return {"message": "Produtor não encontrado"}, 404
+        return {"message": "Produtor nao encontrado"}, 404
 
     data = request.json
     produtor.nome = data["nome"]
     produtor.cpf = data["cpf"]
-    produtor.idade = data["idade"]
+    produtor.data_nascimento = data["data_nascimento"]
 
     ProdutorService.salvar(produtor)
 
@@ -74,7 +74,7 @@ def atualizar_parcial(id):
     produtor = ProdutorService.buscar_por_id(id)
 
     if not produtor:
-        return {"message": "Produtor não encontrado"}, 404
+        return {"message": "Produtor nao encontrado"}, 404
 
     data = request.json
 
@@ -82,8 +82,8 @@ def atualizar_parcial(id):
         produtor.nome = data["nome"]
     if "cpf" in data:
         produtor.cpf = data["cpf"]
-    if "idade" in data:
-        produtor.idade = data["idade"]
+    if "data_nascimento" in data:
+        produtor.data_nascimento = data["data_nascimento"]
 
     ProdutorService.salvar(produtor)
 
@@ -95,7 +95,7 @@ def deletar_produtor(id):
     produtor = ProdutorService.buscar_por_id(id)
 
     if not produtor:
-        return {"message": "Produtor não encontrado"}, 404
+        return {"message": "Produtor nao encontrado"}, 404
 
     ProdutorService.deletar(produtor)
 

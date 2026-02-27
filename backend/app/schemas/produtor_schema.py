@@ -1,5 +1,6 @@
-from app import ma
+from app.helpers.database import ma
 from app.models.produtor import Produtor
+
 
 class ProdutorSchema(ma.SQLAlchemyAutoSchema):
     class Meta:

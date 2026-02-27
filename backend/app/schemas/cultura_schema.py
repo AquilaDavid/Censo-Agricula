@@ -1,14 +1,16 @@
-# app/schemas/cultura_schema.py
-from app import ma
+from app.helpers.database import ma
 from app.models.cultura import Cultura
 
+
 class CulturaSchema(ma.SQLAlchemyAutoSchema):
-    
-    propriedade = ma.Nested('PropriedadeSchema', only=("id",
-            "nome",
-            "tamanho_hectares",
-            "municipio_nome",
-            "estado_uf"))
+
+    propriedade = ma.Nested('PropriedadeSchema', only=(
+        "id",
+        "nome",
+        "tamanho_hectares",
+        "municipio_nome",
+        "estado_uf"
+    ))
 
     class Meta:
         model = Cultura
