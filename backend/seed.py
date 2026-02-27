@@ -44,6 +44,7 @@ with app.app_context():
         municipio_codigo="2504009",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=1
     ),
     Propriedade(
@@ -53,6 +54,7 @@ with app.app_context():
         municipio_codigo="2510808",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=2
     ),
     Propriedade(
@@ -62,6 +64,7 @@ with app.app_context():
         municipio_codigo="2516201",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=3
     ),
     Propriedade(
@@ -71,6 +74,7 @@ with app.app_context():
         municipio_codigo="2512101",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=4
     ),
     Propriedade(
@@ -80,6 +84,7 @@ with app.app_context():
         municipio_codigo="2507002",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=5
     ),
     Propriedade(
@@ -89,6 +94,7 @@ with app.app_context():
         municipio_codigo="2513000",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=6
     ),
     Propriedade(
@@ -98,6 +104,7 @@ with app.app_context():
         municipio_codigo="2504009",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=7
     ),
     Propriedade(
@@ -107,6 +114,7 @@ with app.app_context():
         municipio_codigo="2510808",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=8
     ),
     Propriedade(
@@ -116,6 +124,7 @@ with app.app_context():
         municipio_codigo="2516201",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=9
     ),
     Propriedade(
@@ -125,6 +134,7 @@ with app.app_context():
         municipio_codigo="2512101",
         estado_nome="Paraíba",
         estado_uf="PB",
+        estado_codigo="25",
         produtor_id=10
     ),
     ]
