@@ -4,7 +4,11 @@ from app.models.cultura import Cultura
 
 class CulturaSchema(ma.SQLAlchemyAutoSchema):
     
-    propriedade = ma.Nested('PropriedadeSchema', only=('id', 'nome', 'cidade'))
+    propriedade = ma.Nested('PropriedadeSchema', only=("id",
+            "nome",
+            "tamanho_hectares",
+            "municipio_nome",
+            "estado_uf"))
 
     class Meta:
         model = Cultura
